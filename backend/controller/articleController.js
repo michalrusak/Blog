@@ -43,7 +43,6 @@ const createArticle = async (req, res) => {
   const token = await req.headers["x-access-token"];
 
   const { title, text } = await req.body;
-  // console.log("ttile i body " + title, text);
 
   let UserId;
   try {
