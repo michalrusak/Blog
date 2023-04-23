@@ -26,14 +26,6 @@ function App() {
     }
   }, []);
 
-  // const anon = () => {
-  //   return <p>Anon</p>;
-  // };
-
-  // const logged = () => {
-  //   return <p>logged</p>;
-  // };
-
   return (
     <div className="container">
       <nav className="navbar">
@@ -78,4 +70,3 @@ function App() {
 }
 
 export default App;
-

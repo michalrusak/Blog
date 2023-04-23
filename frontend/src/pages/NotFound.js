@@ -12,9 +12,9 @@ const NotFound = () => {
   });
 
   return (
-    <div>
-      <h1>Page is not found!</h1>
-      <p>You will navigate to home page!</p>
+    <div className="notfound">
+      <h1 className="notfound__title">Page is not found!</h1>
+      <p className="notfound__text">You will navigate to home page!</p>
     </div>
   );
 };

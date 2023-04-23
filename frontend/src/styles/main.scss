@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-@import "utils/_variables";
-@import "base/_normalize";
+@import "utils/variables";
+@import "base/normalize";
 @import "utils/mixins";
-@import "pages/login.scss";
-@import "pages/navbar.scss";
+@import "components/form";
+@import "components/article";
+@import "pages/login";
+@import "pages/register";
+@import "pages/articles";
+@import "pages/addarticle";
+@import "pages/useredit";
+@import "pages/logout";
+@import "pages/navbar";

@@ -1,3 +1,9 @@
+@mixin flex-center-page() {
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 50px);
+}
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -8,6 +14,7 @@
   width: 100px;
   height: 30px;
   padding: 20px 30px;
+  border: 1px solid black;
   color: $color;
   background-color: $bgc;
 }
