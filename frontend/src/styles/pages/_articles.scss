@@ -1,0 +1,12 @@
+.articles {
+  &__button {
+    @include button($color-font-black, $color-1);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+  }
+
+  &__title {
+    color: $color-font-white;
+  }
+}

@@ -2,7 +2,7 @@
 @import "utils/variables";
 @import "base/normalize";
 @import "utils/mixins";
-@import "components/form";
+@import "utils/extends";
 @import "components/article";
 @import "pages/login";
 @import "pages/register";
@@ -11,3 +11,4 @@
 @import "pages/useredit";
 @import "pages/logout";
 @import "pages/navbar";
+@import "pages/notfound";

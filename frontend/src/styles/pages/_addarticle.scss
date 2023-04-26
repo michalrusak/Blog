@@ -1,0 +1,45 @@
+.addarticle {
+  @extend .flex-center;
+  @extend .flex-center-page;
+  gap: 10px;
+
+  &__title {
+    color: $color-font-white;
+  }
+
+  &__form {
+    @extend .form;
+    width: 600px;
+    min-height: 400px;
+  }
+
+  &__label {
+    @extend .label;
+  }
+
+  &__input {
+    @extend .input;
+    &--body {
+      min-height: 80px;
+      max-height: 350px;
+      min-width: 80%;
+      max-width: 80%;
+    }
+  }
+
+  &__error {
+    @extend .error;
+  }
+
+  &__submit {
+    @extend .submit;
+  }
+
+  &__question {
+    @extend .question;
+  }
+
+  &__redirect {
+    @include button($color-font-white, $color-5);
+  }
+}

@@ -1,6 +1,6 @@
 .register {
-  @include flex-center;
-  @include flex-center-page;
+  @extend .flex-center;
+  @extend .flex-center-page;
   gap: 10px;
 
   &__title {
@@ -34,6 +34,6 @@
   }
 
   &__redirect {
-    @extend .redirect;
+    @include button($color-font-white, $color-5);
   }
 }
