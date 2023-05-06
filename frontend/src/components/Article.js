@@ -11,13 +11,13 @@ const Article = (props) => {
   const minuts = String(timeCreated).slice(3);
   return (
     <div key={id} className="article">
-      <h1 className="title">{title}</h1>
-      <p>{author}</p>
-      <p>{body}</p>
-      <p>{dateCreated}</p>
-      <p>
-        {hour}:{minuts}
+      <div className="article__break"></div>
+      <h1 className="article__title">{title}</h1>
+      <p className="article__author">{author}</p>
+      <p className="article__date">
+        {dateCreated} {hour}:{minuts}
       </p>
+      <p className="article__body">{body}</p>
     </div>
   );
 };

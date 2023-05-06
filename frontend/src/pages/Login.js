@@ -19,7 +19,7 @@ const LoginSchema = () =>
       .max(20, "Max 20 char!"),
   });
 
-const Login = () => {
+const Login = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,7 +40,8 @@ const Login = () => {
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);
           alert("Login successful");
-          // window.location.href = "/info";
+          // eslint-disable-next-line react/prop-types
+          props.getToken();
           navigate("/");
         }
       })

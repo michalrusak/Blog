@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignupSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -20,6 +21,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Register = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     document.title = "Sign Up | Blog App";
   });
@@ -34,6 +36,8 @@ const Register = () => {
       })
       .then(function (res) {
         console.log(res);
+        alert("You have created an account!");
+        navigate("/login");
       })
       .catch(function (error) {
         console.log(error);

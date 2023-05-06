@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Logout = () => {
+const Logout = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
     document.title = "Logout | Blog App";
+    localStorage.removeItem("token");
     setTimeout(() => {
+      // eslint-disable-next-line react/prop-types
+      props.reset();
       navigate("/");
     }, 3000);
   });

@@ -3,6 +3,7 @@ import { Formik, Form, Field } from "formik";
 import {} from "formik";
 import * as yup from "yup";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ArticleSchema = () =>
   yup.object().shape({
@@ -12,6 +13,7 @@ const ArticleSchema = () =>
   });
 
 const AddArticle = () => {
+  const navigate = useNavigate();
   // const [token, setToken] = useState("");
   // let token;
 
@@ -47,6 +49,7 @@ const AddArticle = () => {
       )
       .then(function (res) {
         console.log(res);
+        navigate("/");
       })
       .catch(function (error) {
         console.log(error);

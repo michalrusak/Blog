@@ -1,0 +1,33 @@
+.article {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  color: $color-font-white;
+  margin: 0 100px;
+  min-height: 150px;
+  overflow: hidden;
+
+  &__break {
+    height: 2px;
+    width: 100%;
+    background-color: $color-6;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    font-size: 2em;
+  }
+
+  &__author,
+  &__date {
+    color: $color-font-gray;
+    font-size: 0.8em;
+  }
+
+  &__body {
+    text-transform: capitalize;
+    font-size: 1em;
+  }
+}
