@@ -1,0 +1,12 @@
+.user {
+  @extend .flex-center;
+  @extend .flex-center-page;
+  gap: 10px;
+  color: $color-font-white;
+  &__text {
+    font-size: 1.2em;
+  }
+  &__button {
+    @include button($color-font-white, $color-6);
+  }
+}

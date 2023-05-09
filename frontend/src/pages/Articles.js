@@ -19,8 +19,6 @@ const Articles = () => {
         },
       })
       .then(function (res) {
-        console.log(res.data.articles);
-
         setArticles(res.data.articles);
       })
       .catch(function (error) {

@@ -27,16 +27,12 @@ const Login = (props) => {
   });
 
   const sendLoginForm = (values) => {
-    console.log(values);
-
     axios
       .post("/user/login", {
         email: values.email,
         password: values.password,
       })
       .then(function (res) {
-        console.log(res);
-
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);
           alert("Login successful");

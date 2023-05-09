@@ -14,25 +14,18 @@ const ArticleSchema = () =>
 
 const AddArticle = () => {
   const navigate = useNavigate();
-  // const [token, setToken] = useState("");
-  // let token;
 
   useEffect(() => {
     document.title = "Add article | Blog App";
-    // setToken(localStorage.getItem("token"));
-    // console.log(token);
+
+    if (!localStorage.getItem("token")) {
+      localStorage.removeItem("token");
+      navigate("/login");
+    }
   }, []);
 
   const sendArticleForm = async (values) => {
-    console.log(values);
     const token = localStorage.getItem("token");
-
-    // console.log(token);
-
-    // const obj = {
-    //   title: values.title,
-    //   text: values.body,
-    // };
 
     axios
       .post(

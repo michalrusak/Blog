@@ -8,7 +8,6 @@ const ACCESTOKEN = process.env.ACCESTOKEN;
 
 const register = async (req, res) => {
   const { firstname, lastname, email, password } = req.body;
-  console.log(firstname, lastname, email, password);
 
   const newPassword = await bcrypt.hash(password, 10);
 
@@ -20,7 +19,7 @@ const register = async (req, res) => {
   });
 
   if (!user) {
-    return res.json({ err: "user nie zostal stworzony" });
+    return res.json({ err: "User didn't created" });
   }
 
   return res.sendStatus(200);
@@ -28,20 +27,22 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password);
 
   if (!email || !password) {
-    return res.json({ err: "brak emiala lub hasla" });
+    return res.json({ err: "Invalid email or password" });
   }
 
   const user = await User.findOne({ email });
-  // console.log(user);
 
   if (!user) {
     return res.sendStatus(401);
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
+
+  if (!isPasswordValid) {
+    return res.sendStatus(401);
+  }
 
   if (isPasswordValid) {
     const payload = {
@@ -52,12 +53,10 @@ const login = async (req, res) => {
       expiresIn: process.env.expireTime,
     });
 
-    return res.status(200).json({ token, name: user.name });
+    return res.status(200).json({ token });
   }
   return res.status(401);
 };
-
-const logout = async () => {};
 
 const getUser = async (req, res) => {
   const token = req.headers["x-access-token"];
@@ -66,11 +65,7 @@ const getUser = async (req, res) => {
 
     const id = await decoded.id;
 
-    console.log(id);
-
     const user = await User.findById(id);
-
-    console.log(user.firstname, user.lastname, user.email);
 
     res.json({
       firstname: user.firstname,
@@ -83,22 +78,18 @@ const getUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-  console.log("delete user");
-
   const token = req.headers["x-access-token"];
   try {
     const decoded = await jwt.verify(token, ACCESTOKEN);
 
     const id = await decoded.id;
 
-    console.log(id);
-
     await User.deleteOne(User.findById(id));
 
-    res.json({ text: "delete succesful" });
+    res.json({ text: "Delete succesful" });
   } catch (e) {
     console.log(e);
   }
 };
 
-module.exports = { register, login, logout, getUser, deleteUser };
+module.exports = { register, login, getUser, deleteUser };

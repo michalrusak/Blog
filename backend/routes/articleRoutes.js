@@ -11,7 +11,6 @@ const {
 router.route("/").get(getArticles);
 
 router.route("/newarticle").post(createArticle);
-//czy dodac to nizej
 
 router.route("/:id").patch(updateArticle).delete(deleteArticle);
 
