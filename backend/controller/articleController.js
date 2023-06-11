@@ -6,31 +6,16 @@ const jwt = require("jsonwebtoken");
 const ACCESTOKEN = process.env.ACCESTOKEN;
 
 const getArticles = async (req, res) => {
-  // const token = req.headers["x-access-token"];
-  // let UserId;
-
-  // if (token) {
-  //   const decoded = await jwt.verify(token, ACCESTOKEN);
-
-  //   UserId = await decoded.id;
-  // }
   try {
     const articles = await Article.find();
 
     const newArticles = articles.map((elem) => {
-      // let edit = false;
-      // if (elem.authorId[0] == UserId) {
-      //   edit = true;
-      //   console.log("id true");
-      // }
       return {
         id: elem.id,
         title: elem.title,
         body: elem.body,
         author: elem.author,
         createdAt: elem.createdAt,
-        // edit: edit,
-        // aid: elem.authorId[0],
       };
     });
     res.json({ articles: newArticles });
